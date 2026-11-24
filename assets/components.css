@@ -1,0 +1,149 @@
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: 0.8rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-contrast);
+}
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-primary:active { transform: translateY(1px); }
+.btn:focus-visible,
+.segmented__option:focus-visible,
+.icon-btn:focus-visible,
+.link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+.btn[disabled] { opacity: 0.7; cursor: progress; }
+
+/* Segmented control (Student / Administrator) */
+.segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--primary);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--bg-surface);
+}
+.segmented__option {
+  padding: 0.7rem 1rem;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.segmented__option[aria-checked="true"] {
+  background: var(--primary);
+  color: var(--primary-contrast);
+}
+
+/* Form fields */
+.field { display: flex; flex-direction: column; gap: var(--space-2); }
+.field__label { font-size: 0.875rem; font-weight: 600; color: var(--text-primary); }
+.field__control { position: relative; }
+.field__input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-muted);
+  color: var(--text-primary);
+  font: inherit;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.field__input::placeholder { color: var(--text-secondary); opacity: 0.7; }
+.field__input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+.field.has-error .field__input { border-color: var(--error); }
+.field__error { min-height: 1.1em; font-size: 0.8rem; color: var(--error); }
+.field__toggle {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0.5rem;
+  padding: 0 0.6rem;
+  border: 0;
+  background: none;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Misc */
+.link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.link:hover { text-decoration: underline; }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* Switch (dark mode) */
+.switch { display: inline-flex; align-items: center; gap: var(--space-3); font-size: 0.875rem; color: var(--text-secondary); }
+.switch__track {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--border-color);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.switch__track::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  inset-inline-start: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: inset-inline-start var(--transition);
+}
+.switch__track[aria-checked="true"] { background: var(--primary); }
+.switch__track[aria-checked="true"]::after { inset-inline-start: 21px; }
+.switch__track:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--focus-ring); }
+
+/* Alert */
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+}
+.alert--success { background: rgba(47, 125, 87, 0.12); color: var(--success); }
+.alert--error { background: rgba(179, 38, 30, 0.1); color: var(--error); }
